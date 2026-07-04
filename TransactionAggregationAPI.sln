@@ -30,6 +30,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{FDE89C
 		UnifiedTransaction.cs = UnifiedTransaction.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{7B1710FD-A1B6-441A-9777-823CB37DC878}"
+	ProjectSection(SolutionItems) = preProject
+		ITransactionSource.cs = ITransactionSource.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +119,7 @@ Global
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {81034408-37C8-1011-444E-4C15C2FADA8E}
 		{A508F796-6D02-4230-862B-C0F82C96E126} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{FDE89C29-6ED4-4215-9C82-45BA2CBA6F54} = {A508F796-6D02-4230-862B-C0F82C96E126}
+		{7B1710FD-A1B6-441A-9777-823CB37DC878} = {A508F796-6D02-4230-862B-C0F82C96E126}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC22A7F-5732-41C6-B59B-ADDA216D88E7}
