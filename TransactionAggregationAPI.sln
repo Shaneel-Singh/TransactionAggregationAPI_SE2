@@ -22,6 +22,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", 
 		ServiceCollectionExtensions.cs = ServiceCollectionExtensions.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{A508F796-6D02-4230-862B-C0F82C96E126}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{FDE89C29-6ED4-4215-9C82-45BA2CBA6F54}"
+	ProjectSection(SolutionItems) = preProject
+		TransactionCategory.cs = TransactionCategory.cs
+		UnifiedTransaction.cs = UnifiedTransaction.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +112,8 @@ Global
 		{6DC40AE6-8369-4B7B-9753-50D961091244} = {81034408-37C8-1011-444E-4C15C2FADA8E}
 		{DAEEC50D-269D-4574-8290-9C1E1296FA5D} = {81034408-37C8-1011-444E-4C15C2FADA8E}
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {81034408-37C8-1011-444E-4C15C2FADA8E}
+		{A508F796-6D02-4230-862B-C0F82C96E126} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{FDE89C29-6ED4-4215-9C82-45BA2CBA6F54} = {A508F796-6D02-4230-862B-C0F82C96E126}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC22A7F-5732-41C6-B59B-ADDA216D88E7}
