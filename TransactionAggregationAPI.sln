@@ -46,6 +46,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceA", "SourceA", "{6DFD
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceB", "SourceB", "{A097F4CA-9769-4DFC-9DC8-93B4AD432612}"
+	ProjectSection(SolutionItems) = preProject
+		SourceBAdaptor.cs = SourceBAdaptor.cs
+		SourceBTransaction.cs = SourceBTransaction.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceC", "SourceC", "{52E971FB-687E-401C-80F0-4152E81C7150}"
 EndProject
