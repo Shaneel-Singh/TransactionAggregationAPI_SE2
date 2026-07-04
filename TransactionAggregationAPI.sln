@@ -52,6 +52,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceB", "SourceB", "{A097
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceC", "SourceC", "{52E971FB-687E-401C-80F0-4152E81C7150}"
+	ProjectSection(SolutionItems) = preProject
+		SourceCAdaptor.cs = SourceCAdaptor.cs
+		SourceCTransaction.cs = SourceCTransaction.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
