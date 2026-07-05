@@ -71,6 +71,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F8
 		AggregationService.cs = AggregationService.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B288C6A7-E106-43A5-AF34-F9FEFA80CB95}"
+	ProjectSection(SolutionItems) = preProject
+		TransactionDbContext.cs = TransactionDbContext.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{3DBDAAED-3A62-4B93-9F38-9B322AD00D23}"
+	ProjectSection(SolutionItems) = preProject
+		UnifiedTransactionConfiguration.cs = UnifiedTransactionConfiguration.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +173,8 @@ Global
 		{52E971FB-687E-401C-80F0-4152E81C7150} = {7603D077-B66A-4DE3-80EC-D80A8BC719FA}
 		{BC2051C8-484A-4305-9E3D-22D90C8F3144} = {A508F796-6D02-4230-862B-C0F82C96E126}
 		{F851BA24-D6FD-468C-9D09-146B541BB8FD} = {A508F796-6D02-4230-862B-C0F82C96E126}
+		{B288C6A7-E106-43A5-AF34-F9FEFA80CB95} = {12FC9AD3-7B53-4091-85F9-477C99FB0D2C}
+		{3DBDAAED-3A62-4B93-9F38-9B322AD00D23} = {B288C6A7-E106-43A5-AF34-F9FEFA80CB95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC22A7F-5732-41C6-B59B-ADDA216D88E7}
