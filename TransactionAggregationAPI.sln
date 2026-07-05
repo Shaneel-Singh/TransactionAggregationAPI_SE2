@@ -34,6 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", 
 	ProjectSection(SolutionItems) = preProject
 		IAggregationService.cs = IAggregationService.cs
 		ICategorizationService.cs = ICategorizationService.cs
+		ITransactionCacheService.cs = ITransactionCacheService.cs
 		ITransactionRepository.cs = ITransactionRepository.cs
 		ITransactionSource.cs = ITransactionSource.cs
 	EndProjectSection
@@ -85,6 +86,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{71F4FD14-9D69-433C-A270-DED0E97859AE}"
 	ProjectSection(SolutionItems) = preProject
 		TransactionRepository.cs = TransactionRepository.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cache", "Cache", "{133B9C78-3183-4F37-B7F5-4A319CE3D3EA}"
+	ProjectSection(SolutionItems) = preProject
+		RedisCacheService.vb = RedisCacheService.vb
 	EndProjectSection
 EndProject
 Global
@@ -182,6 +188,7 @@ Global
 		{B288C6A7-E106-43A5-AF34-F9FEFA80CB95} = {12FC9AD3-7B53-4091-85F9-477C99FB0D2C}
 		{3DBDAAED-3A62-4B93-9F38-9B322AD00D23} = {B288C6A7-E106-43A5-AF34-F9FEFA80CB95}
 		{71F4FD14-9D69-433C-A270-DED0E97859AE} = {12FC9AD3-7B53-4091-85F9-477C99FB0D2C}
+		{133B9C78-3183-4F37-B7F5-4A319CE3D3EA} = {12FC9AD3-7B53-4091-85F9-477C99FB0D2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC22A7F-5732-41C6-B59B-ADDA216D88E7}
