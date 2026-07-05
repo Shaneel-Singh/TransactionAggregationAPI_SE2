@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{FDE89C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{7B1710FD-A1B6-441A-9777-823CB37DC878}"
 	ProjectSection(SolutionItems) = preProject
+		IAggregationService.cs = IAggregationService.cs
 		ICategorizationService.cs = ICategorizationService.cs
 		ITransactionSource.cs = ITransactionSource.cs
 	EndProjectSection
@@ -63,6 +64,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Categorization", "Categoriz
 		CategorizationService.cs = CategorizationService.cs
 		ICategorizationStrategy.cs = ICategorizationStrategy.cs
 		KeywordCategorizationStrategy.cs = KeywordCategorizationStrategy.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F851BA24-D6FD-468C-9D09-146B541BB8FD}"
+	ProjectSection(SolutionItems) = preProject
+		AggregationService.cs = AggregationService.cs
 	EndProjectSection
 EndProject
 Global
@@ -156,6 +162,7 @@ Global
 		{A097F4CA-9769-4DFC-9DC8-93B4AD432612} = {7603D077-B66A-4DE3-80EC-D80A8BC719FA}
 		{52E971FB-687E-401C-80F0-4152E81C7150} = {7603D077-B66A-4DE3-80EC-D80A8BC719FA}
 		{BC2051C8-484A-4305-9E3D-22D90C8F3144} = {A508F796-6D02-4230-862B-C0F82C96E126}
+		{F851BA24-D6FD-468C-9D09-146B541BB8FD} = {A508F796-6D02-4230-862B-C0F82C96E126}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC22A7F-5732-41C6-B59B-ADDA216D88E7}
