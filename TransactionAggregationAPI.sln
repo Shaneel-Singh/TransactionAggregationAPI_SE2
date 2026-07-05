@@ -71,6 +71,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F851BA24-D6FD-468C-9D09-146B541BB8FD}"
 	ProjectSection(SolutionItems) = preProject
 		AggregationService.cs = AggregationService.cs
+		TransactionService.cs = TransactionService.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B288C6A7-E106-43A5-AF34-F9FEFA80CB95}"
