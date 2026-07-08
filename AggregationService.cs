@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using TransactionAggregationAPI.Application.Domain;
 using TransactionAggregationAPI.Application.Interfaces;
 
 namespace TransactionAggregationAPI.Application.Services;
@@ -36,7 +37,7 @@ public class AggregationService : IAggregationService
 
         foreach (var tx in allTransactions)
         {
-            if (tx.Category == Domain.TransactionCategory.Uncategorized)
+            if (tx.Category == TransactionCategory.Uncategorized)
                 tx.Category = _categorization.Categorize(tx.Description, tx.MerchantName, tx.Amount);
         }
 
@@ -82,7 +83,7 @@ public class AggregationService : IAggregationService
     private record InternalSourceResult(
         string SourceName,
         bool Success,
-        List<Domain.UnifiedTransaction>? Transactions,
+        List<UnifiedTransaction>? Transactions,
         string? ErrorMessage,
         TimeSpan Duration);
 }

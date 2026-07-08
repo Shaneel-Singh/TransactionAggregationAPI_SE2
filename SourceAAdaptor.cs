@@ -29,7 +29,9 @@ public class SourceAAdapter : ITransactionSource
 
     public static UnifiedTransaction Map(SourceATransaction src)
     {
-        DateTime.TryParse(src.TransactionDate, out var date);
+        DateTime.TryParseExact(src.TransactionDate, "yyyy-MM-ddTHH:mm:ssZ",
+            System.Globalization.CultureInfo.InvariantCulture,
+            System.Globalization.DateTimeStyles.AssumeUniversal, out var date);
         return new UnifiedTransaction
         {
             ExternalId = src.TransactionId,
@@ -41,7 +43,7 @@ public class SourceAAdapter : ITransactionSource
             Description = src.Description,
             MerchantName = src.MerchantName,
             TransactionType = src.Type,
-            TransactionDateUtc = date.ToUniversalTime(),
+            TransactionDateUtc = DateTime.SpecifyKind(date, DateTimeKind.Utc),
             CreatedAtUtc = DateTime.UtcNow,
             UpdatedAtUtc = DateTime.UtcNow,
             RawPayload = JsonSerializer.Serialize(src)
