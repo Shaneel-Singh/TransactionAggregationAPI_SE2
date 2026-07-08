@@ -53,3 +53,6 @@ secrets.json
 
 ## VS Code
 .vscode/
+
+## Local only
+docs/
