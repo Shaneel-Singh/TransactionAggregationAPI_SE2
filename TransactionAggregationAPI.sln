@@ -101,6 +101,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middleware", "Middleware", 
 		GlobalExceptionMiddleware.cs = GlobalExceptionMiddleware.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers", "{A937DDB3-2D60-43D1-98DE-BE8B89AEB1AD}"
+	ProjectSection(SolutionItems) = preProject
+		AggregationController.cs = AggregationController.cs
+		TransactionsController.cs = TransactionsController.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{F8B199AC-B15C-4127-879C-005B224B0D9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{76CBE1E5-A028-41E6-85A4-1113DA7600B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Responses", "Responses", "{C1884C74-9B6D-4E79-9125-7AD190CE22E4}"
+	ProjectSection(SolutionItems) = preProject
+		AggregationResponse.cs = AggregationResponse.cs
+		PagedResponse.cs = PagedResponse.cs
+		SummaryResponse.cs = SummaryResponse.cs
+		TransactionResponse.cs = TransactionResponse.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -198,6 +216,10 @@ Global
 		{71F4FD14-9D69-433C-A270-DED0E97859AE} = {12FC9AD3-7B53-4091-85F9-477C99FB0D2C}
 		{133B9C78-3183-4F37-B7F5-4A319CE3D3EA} = {12FC9AD3-7B53-4091-85F9-477C99FB0D2C}
 		{1A9BAED4-6E7C-40BA-AE7B-1350EC9B9617} = {81034408-37C8-1011-444E-4C15C2FADA8E}
+		{A937DDB3-2D60-43D1-98DE-BE8B89AEB1AD} = {81034408-37C8-1011-444E-4C15C2FADA8E}
+		{F8B199AC-B15C-4127-879C-005B224B0D9E} = {81034408-37C8-1011-444E-4C15C2FADA8E}
+		{76CBE1E5-A028-41E6-85A4-1113DA7600B1} = {F8B199AC-B15C-4127-879C-005B224B0D9E}
+		{C1884C74-9B6D-4E79-9125-7AD190CE22E4} = {F8B199AC-B15C-4127-879C-005B224B0D9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC22A7F-5732-41C6-B59B-ADDA216D88E7}
