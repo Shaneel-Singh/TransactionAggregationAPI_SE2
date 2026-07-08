@@ -110,6 +110,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{F8B199AC-B15C-4127-879C-005B224B0D9E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{76CBE1E5-A028-41E6-85A4-1113DA7600B1}"
+	ProjectSection(SolutionItems) = preProject
+		CreateTransactionRequest.cs = CreateTransactionRequest.cs
+		GetTransactionsRequest.cs = GetTransactionsRequest.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Responses", "Responses", "{C1884C74-9B6D-4E79-9125-7AD190CE22E4}"
 	ProjectSection(SolutionItems) = preProject
@@ -117,6 +121,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Responses", "Responses", "{
 		PagedResponse.cs = PagedResponse.cs
 		SummaryResponse.cs = SummaryResponse.cs
 		TransactionResponse.cs = TransactionResponse.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validators", "Validators", "{9E13BB17-605E-4985-A112-B1B7FB7E9222}"
+	ProjectSection(SolutionItems) = preProject
+		CreateTransactionRequestValidator.cs = CreateTransactionRequestValidator.cs
+		GetTransactionsRequestValidator.cs = GetTransactionsRequestValidator.cs
 	EndProjectSection
 EndProject
 Global
@@ -220,6 +230,7 @@ Global
 		{F8B199AC-B15C-4127-879C-005B224B0D9E} = {81034408-37C8-1011-444E-4C15C2FADA8E}
 		{76CBE1E5-A028-41E6-85A4-1113DA7600B1} = {F8B199AC-B15C-4127-879C-005B224B0D9E}
 		{C1884C74-9B6D-4E79-9125-7AD190CE22E4} = {F8B199AC-B15C-4127-879C-005B224B0D9E}
+		{9E13BB17-605E-4985-A112-B1B7FB7E9222} = {81034408-37C8-1011-444E-4C15C2FADA8E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC22A7F-5732-41C6-B59B-ADDA216D88E7}
