@@ -19,24 +19,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionAggregationAPI.I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
-		ServiceCollectionExtensions.cs = ServiceCollectionExtensions.cs
+		src\API\Extensions\ServiceCollectionExtensions.cs = src\API\Extensions\ServiceCollectionExtensions.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{A508F796-6D02-4230-862B-C0F82C96E126}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{FDE89C29-6ED4-4215-9C82-45BA2CBA6F54}"
 	ProjectSection(SolutionItems) = preProject
-		TransactionCategory.cs = TransactionCategory.cs
-		UnifiedTransaction.cs = UnifiedTransaction.cs
+		src\Application\Domain\TransactionCategory.cs = src\Application\Domain\TransactionCategory.cs
+		src\Application\Domain\UnifiedTransaction.cs = src\Application\Domain\UnifiedTransaction.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{7B1710FD-A1B6-441A-9777-823CB37DC878}"
 	ProjectSection(SolutionItems) = preProject
-		IAggregationService.cs = IAggregationService.cs
-		ICategorizationService.cs = ICategorizationService.cs
-		ITransactionCacheService.cs = ITransactionCacheService.cs
-		ITransactionRepository.cs = ITransactionRepository.cs
-		ITransactionSource.cs = ITransactionSource.cs
+		src\Application\Interfaces\IAggregationService.cs = src\Application\Interfaces\IAggregationService.cs
+		src\Application\Interfaces\ICategorizationService.cs = src\Application\Interfaces\ICategorizationService.cs
+		src\Application\Interfaces\ITransactionCacheService.cs = src\Application\Interfaces\ITransactionCacheService.cs
+		src\Application\Interfaces\ITransactionRepository.cs = src\Application\Interfaces\ITransactionRepository.cs
+		src\Application\Interfaces\ITransactionSource.cs = src\Application\Interfaces\ITransactionSource.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{12FC9AD3-7B53-4091-85F9-477C99FB0D2C}"
@@ -45,88 +45,88 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{7603
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceA", "SourceA", "{6DFD0D2B-A6D3-40FF-9A37-3E51F318600C}"
 	ProjectSection(SolutionItems) = preProject
-		SourceAAdaptor.cs = SourceAAdaptor.cs
-		SourceATransaction.cs = SourceATransaction.cs
+		src\Infrastructure\Sources\SourceA\SourceAAdapter.cs = src\Infrastructure\Sources\SourceA\SourceAAdapter.cs
+		src\Infrastructure\Sources\SourceA\SourceATransaction.cs = src\Infrastructure\Sources\SourceA\SourceATransaction.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceB", "SourceB", "{A097F4CA-9769-4DFC-9DC8-93B4AD432612}"
 	ProjectSection(SolutionItems) = preProject
-		SourceBAdaptor.cs = SourceBAdaptor.cs
-		SourceBTransaction.cs = SourceBTransaction.cs
+		src\Infrastructure\Sources\SourceB\SourceBAdapter.cs = src\Infrastructure\Sources\SourceB\SourceBAdapter.cs
+		src\Infrastructure\Sources\SourceB\SourceBTransaction.cs = src\Infrastructure\Sources\SourceB\SourceBTransaction.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceC", "SourceC", "{52E971FB-687E-401C-80F0-4152E81C7150}"
 	ProjectSection(SolutionItems) = preProject
-		SourceCAdaptor.cs = SourceCAdaptor.cs
-		SourceCTransaction.cs = SourceCTransaction.cs
+		src\Infrastructure\Sources\SourceC\SourceCAdapter.cs = src\Infrastructure\Sources\SourceC\SourceCAdapter.cs
+		src\Infrastructure\Sources\SourceC\SourceCTransaction.cs = src\Infrastructure\Sources\SourceC\SourceCTransaction.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Categorization", "Categorization", "{BC2051C8-484A-4305-9E3D-22D90C8F3144}"
 	ProjectSection(SolutionItems) = preProject
-		CategorizationService.cs = CategorizationService.cs
-		ICategorizationStrategy.cs = ICategorizationStrategy.cs
-		KeywordCategorizationStrategy.cs = KeywordCategorizationStrategy.cs
+		src\Application\Categorization\CategorizationService.cs = src\Application\Categorization\CategorizationService.cs
+		src\Application\Categorization\ICategorizationStrategy.cs = src\Application\Categorization\ICategorizationStrategy.cs
+		src\Application\Categorization\KeywordCategorizationStrategy.cs = src\Application\Categorization\KeywordCategorizationStrategy.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F851BA24-D6FD-468C-9D09-146B541BB8FD}"
 	ProjectSection(SolutionItems) = preProject
-		AggregationService.cs = AggregationService.cs
-		TransactionService.cs = TransactionService.cs
+		src\Application\Services\AggregationService.cs = src\Application\Services\AggregationService.cs
+		src\Application\Services\TransactionService.cs = src\Application\Services\TransactionService.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B288C6A7-E106-43A5-AF34-F9FEFA80CB95}"
 	ProjectSection(SolutionItems) = preProject
-		TransactionDbContext.cs = TransactionDbContext.cs
+		src\Infrastructure\Data\TransactionDbContext.cs = src\Infrastructure\Data\TransactionDbContext.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{3DBDAAED-3A62-4B93-9F38-9B322AD00D23}"
 	ProjectSection(SolutionItems) = preProject
-		UnifiedTransactionConfiguration.cs = UnifiedTransactionConfiguration.cs
+		src\Infrastructure\Data\Configurations\UnifiedTransactionConfiguration.cs = src\Infrastructure\Data\Configurations\UnifiedTransactionConfiguration.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{71F4FD14-9D69-433C-A270-DED0E97859AE}"
 	ProjectSection(SolutionItems) = preProject
-		TransactionRepository.cs = TransactionRepository.cs
+		src\Infrastructure\Data\Repositories\TransactionRepository.cs = src\Infrastructure\Data\Repositories\TransactionRepository.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cache", "Cache", "{133B9C78-3183-4F37-B7F5-4A319CE3D3EA}"
 	ProjectSection(SolutionItems) = preProject
-		RedisCacheService.vb = RedisCacheService.vb
+		src\Infrastructure\Cache\RedisCacheService.cs = src\Infrastructure\Cache\RedisCacheService.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middleware", "Middleware", "{1A9BAED4-6E7C-40BA-AE7B-1350EC9B9617}"
 	ProjectSection(SolutionItems) = preProject
-		ApiKeyAuthMiddleware.cs = ApiKeyAuthMiddleware.cs
-		CorrelationIdMiddleware.cs = CorrelationIdMiddleware.cs
-		GlobalExceptionMiddleware.cs = GlobalExceptionMiddleware.cs
+		src\API\Middleware\ApiKeyAuthMiddleware.cs = src\API\Middleware\ApiKeyAuthMiddleware.cs
+		src\API\Middleware\CorrelationIdMiddleware.cs = src\API\Middleware\CorrelationIdMiddleware.cs
+		src\API\Middleware\GlobalExceptionMiddleware.cs = src\API\Middleware\GlobalExceptionMiddleware.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers", "{A937DDB3-2D60-43D1-98DE-BE8B89AEB1AD}"
 	ProjectSection(SolutionItems) = preProject
-		AggregationController.cs = AggregationController.cs
-		TransactionsController.cs = TransactionsController.cs
+		src\API\Controllers\AggregationController.cs = src\API\Controllers\AggregationController.cs
+		src\API\Controllers\TransactionsController.cs = src\API\Controllers\TransactionsController.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{F8B199AC-B15C-4127-879C-005B224B0D9E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{76CBE1E5-A028-41E6-85A4-1113DA7600B1}"
 	ProjectSection(SolutionItems) = preProject
-		CreateTransactionRequest.cs = CreateTransactionRequest.cs
-		GetTransactionsRequest.cs = GetTransactionsRequest.cs
+		src\API\Models\Requests\CreateTransactionRequest.cs = src\API\Models\Requests\CreateTransactionRequest.cs
+		src\API\Models\Requests\GetTransactionsRequest.cs = src\API\Models\Requests\GetTransactionsRequest.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Responses", "Responses", "{C1884C74-9B6D-4E79-9125-7AD190CE22E4}"
 	ProjectSection(SolutionItems) = preProject
-		AggregationResponse.cs = AggregationResponse.cs
-		PagedResponse.cs = PagedResponse.cs
-		SummaryResponse.cs = SummaryResponse.cs
-		TransactionResponse.cs = TransactionResponse.cs
+		src\API\Models\Responses\AggregationResponse.cs = src\API\Models\Responses\AggregationResponse.cs
+		src\API\Models\Responses\PagedResponse.cs = src\API\Models\Responses\PagedResponse.cs
+		src\API\Models\Responses\SummaryResponse.cs = src\API\Models\Responses\SummaryResponse.cs
+		src\API\Models\Responses\TransactionResponse.cs = src\API\Models\Responses\TransactionResponse.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validators", "Validators", "{9E13BB17-605E-4985-A112-B1B7FB7E9222}"
 	ProjectSection(SolutionItems) = preProject
-		CreateTransactionRequestValidator.cs = CreateTransactionRequestValidator.cs
-		GetTransactionsRequestValidator.cs = GetTransactionsRequestValidator.cs
+		src\API\Validators\CreateTransactionRequestValidator.cs = src\API\Validators\CreateTransactionRequestValidator.cs
+		src\API\Validators\GetTransactionsRequestValidator.cs = src\API\Validators\GetTransactionsRequestValidator.cs
 	EndProjectSection
 EndProject
 Global
