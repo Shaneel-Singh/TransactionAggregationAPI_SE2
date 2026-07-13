@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TransactionAggregationAPI.API.Models.Requests;
 using TransactionAggregationAPI.API.Models.Responses;
-using TransactionAggregationAPI.Application.Services;
+using TransactionAggregationAPI.Application.Interfaces;
 
 namespace TransactionAggregationAPI.API.Controllers;
 
@@ -10,13 +10,13 @@ namespace TransactionAggregationAPI.API.Controllers;
 [Route("api/transactions")]
 public class TransactionsController : ControllerBase
 {
-    private readonly TransactionService _service;
+    private readonly ITransactionService _service;
     private readonly IValidator<CreateTransactionRequest> _createValidator;
     private readonly IValidator<GetTransactionsRequest> _getValidator;
     private readonly ILogger<TransactionsController> _logger;
 
     public TransactionsController(
-        TransactionService service,
+        ITransactionService service,
         IValidator<CreateTransactionRequest> createValidator,
         IValidator<GetTransactionsRequest> getValidator,
         ILogger<TransactionsController> logger)

@@ -4,7 +4,7 @@ using TransactionAggregationAPI.Application.Interfaces;
 
 namespace TransactionAggregationAPI.Application.Services;
 
-public class TransactionService
+public class TransactionService : ITransactionService
 {
     private readonly ITransactionRepository _repository;
     private readonly ITransactionCacheService _cache;

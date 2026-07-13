@@ -46,7 +46,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<ITransactionSource, SourceAAdapter>();
         services.AddSingleton<ITransactionSource, SourceBAdapter>();
         services.AddSingleton<ITransactionSource, SourceCAdapter>();
-        services.AddScoped<TransactionService>();
+        services.AddScoped<ITransactionService, TransactionService>();
         services.AddScoped<IAggregationService, AggregationService>();
 
         return services;
