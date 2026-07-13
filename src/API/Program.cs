@@ -1,4 +1,5 @@
 using FluentValidation;
+using Microsoft.OpenApi.Models;
 using Npgsql;
 using Serilog;
 using Serilog.Events;
@@ -8,7 +9,7 @@ using TransactionAggregationAPI.API.Models.Requests;
 using TransactionAggregationAPI.API.Validators;
 using TransactionAggregationAPI.Infrastructure.Data;
 
-// Bootstrap logger — replaced after config is loaded
+// Bootstrap logger ï¿½ replaced after config is loaded
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
@@ -29,11 +30,32 @@ try
         .Enrich.WithProperty("Application", "TransactionAggregationAPI")
         .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{CorrelationId}] {Message:lj}{NewLine}{Exception}"));
 
-    //Startup validation — fail fast on missing config
+    //Startup validation ï¿½ fail fast on missing config
     ValidateRequiredConfig(builder.Configuration);
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen(opts =>
+    {
+        opts.SwaggerDoc("v1", new OpenApiInfo { Title = "Transaction Aggregation API", Version = "v1" });
+        opts.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
+        {
+            Type = SecuritySchemeType.ApiKey,
+            In = ParameterLocation.Header,
+            Name = "X-API-Key",
+            Description = "API key required for all transaction endpoints"
+        });
+        opts.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "ApiKey" }
+                },
+                []
+            }
+        });
+    });
     builder.Services.AddApplicationServices(builder.Configuration);
 
     var connStr = builder.Configuration["ConnectionStrings:Postgres"]!;
@@ -53,6 +75,8 @@ try
     app.UseMiddleware<CorrelationIdMiddleware>();
     app.UseCors("Default");
     app.UseRateLimiter();
+    app.UseSwagger();
+    app.UseSwaggerUI(opts => opts.SwaggerEndpoint("/swagger/v1/swagger.json", "Transaction Aggregation API v1"));
     app.UseMiddleware<ApiKeyAuthMiddleware>();
     app.MapControllers();
 

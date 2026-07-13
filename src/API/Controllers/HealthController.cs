@@ -18,12 +18,16 @@ public class HealthController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult Get() => Ok(new { status = "healthy", timestamp = DateTime.UtcNow });
 
     [HttpGet("live")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult Live() => Ok(new { status = "alive", timestamp = DateTime.UtcNow });
 
     [HttpGet("ready")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
     public async Task<IActionResult> Ready()
     {
         var report = await _healthCheckService.CheckHealthAsync();
@@ -41,6 +45,7 @@ public class HealthController : ControllerBase
     }
 
     [HttpGet("metrics")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> Metrics()
     {
         var cacheStats = await _cacheService.GetStatsAsync();

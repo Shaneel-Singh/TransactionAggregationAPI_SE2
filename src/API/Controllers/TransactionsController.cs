@@ -8,6 +8,7 @@ namespace TransactionAggregationAPI.API.Controllers;
 
 [ApiController]
 [Route("api/transactions")]
+[Produces("application/json")]
 public class TransactionsController : ControllerBase
 {
     private readonly ITransactionService _service;
@@ -28,6 +29,8 @@ public class TransactionsController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(PagedResponse<TransactionResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetAll([FromQuery] GetTransactionsRequest req, CancellationToken ct)
     {
         var validation = await _getValidator.ValidateAsync(req, ct);
@@ -44,6 +47,8 @@ public class TransactionsController : ControllerBase
     }
 
     [HttpGet("{id:guid}")]
+    [ProducesResponseType(typeof(TransactionResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetById(Guid id, CancellationToken ct)
     {
         var tx = await _service.GetByIdAsync(id, ct);
@@ -52,6 +57,8 @@ public class TransactionsController : ControllerBase
     }
 
     [HttpGet("customer/{customerId}")]
+    [ProducesResponseType(typeof(PagedResponse<TransactionResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetByCustomer(string customerId, [FromQuery] GetTransactionsRequest req, CancellationToken ct)
     {
         var validation = await _getValidator.ValidateAsync(req, ct);
@@ -68,6 +75,7 @@ public class TransactionsController : ControllerBase
     }
 
     [HttpGet("customer/{customerId}/summary")]
+    [ProducesResponseType(typeof(SummaryResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetSummary(
         string customerId,
         [FromQuery] DateTime? from,
@@ -91,6 +99,8 @@ public class TransactionsController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(typeof(TransactionResponse), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create([FromBody] CreateTransactionRequest req, CancellationToken ct)
     {
         var validation = await _createValidator.ValidateAsync(req, ct);
@@ -108,6 +118,8 @@ public class TransactionsController : ControllerBase
 
     /// <summary>Soft-delete a transaction</summary>
     [HttpDelete("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
     {
         var apiKey = HttpContext.Request.Headers["X-API-Key"].ToString();

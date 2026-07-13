@@ -13,7 +13,8 @@ public class ApiKeyAuthMiddleware
 
     private static readonly string[] PublicPaths =
     [
-        "/health", "/health/live", "/health/ready", "/health/metrics"
+        "/health", "/health/live", "/health/ready", "/health/metrics",
+        "/swagger"
     ];
 
     public ApiKeyAuthMiddleware(RequestDelegate next, IConfiguration config, ILogger<ApiKeyAuthMiddleware> logger)

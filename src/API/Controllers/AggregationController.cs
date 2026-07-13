@@ -6,6 +6,7 @@ namespace TransactionAggregationAPI.API.Controllers;
 
 [ApiController]
 [Route("api/transactions")]
+[Produces("application/json")]
 public class AggregationController : ControllerBase
 {
     private readonly IAggregationService _aggregationService;
@@ -18,6 +19,8 @@ public class AggregationController : ControllerBase
     }
 
     [HttpPost("aggregate")]
+    [ProducesResponseType(typeof(AggregationResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(AggregationResponse), StatusCodes.Status207MultiStatus)]
     public async Task<IActionResult> Aggregate(CancellationToken ct)
     {
         _logger.LogInformation("Aggregation triggered via API");
