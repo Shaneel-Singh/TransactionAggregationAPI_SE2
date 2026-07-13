@@ -78,13 +78,16 @@ public class TransactionRepository : ITransactionRepository
         var txList = transactions.ToList();
         if (txList.Count == 0) return;
 
+        // Pre-load all potentially matching records in one query — eliminates N+1 read pattern
+        var externalIds = txList.Select(t => t.ExternalId).ToList();
+        var existingByKey = await _db.Transactions
+            .IgnoreQueryFilters()
+            .Where(t => externalIds.Contains(t.ExternalId))
+            .ToDictionaryAsync(t => (t.ExternalId, t.SourceSystem), ct);
+
         foreach (var tx in txList)
         {
-            var existing = await _db.Transactions
-                .IgnoreQueryFilters()
-                .FirstOrDefaultAsync(t => t.ExternalId == tx.ExternalId && t.SourceSystem == tx.SourceSystem, ct);
-
-            if (existing is null)
+            if (!existingByKey.TryGetValue((tx.ExternalId, tx.SourceSystem), out var existing))
             {
                 tx.Id = Guid.NewGuid();
                 tx.CreatedAtUtc = DateTime.UtcNow;
@@ -127,24 +130,44 @@ public class TransactionRepository : ITransactionRepository
         if (from.HasValue) query = query.Where(t => t.TransactionDateUtc >= from.Value);
         if (to.HasValue) query = query.Where(t => t.TransactionDateUtc <= to.Value);
 
-        var transactions = await query.ToListAsync(ct);
-        if (transactions.Count == 0)
+        // Push scalar aggregates to the database — avoids loading all rows into memory
+        var stats = await query
+            .GroupBy(_ => 1)
+            .Select(g => new
+            {
+                Count = g.Count(),
+                Total = g.Sum(t => t.Amount),
+                Avg = g.Average(t => t.Amount),
+                Max = g.Max(t => t.Amount),
+                Min = g.Min(t => t.Amount),
+                Earliest = g.Min(t => (DateTime?)t.TransactionDateUtc),
+                Latest = g.Max(t => (DateTime?)t.TransactionDateUtc)
+            })
+            .FirstOrDefaultAsync(ct);
+
+        if (stats is null)
             return new TransactionSummary(customerId, 0, 0, 0, 0, 0,
                 new Dictionary<TransactionCategory, int>(),
                 new Dictionary<TransactionCategory, decimal>(),
                 null, null);
 
+        // Push category breakdown to the database as a second query
+        var categoryStats = await query
+            .GroupBy(t => t.Category)
+            .Select(g => new { Category = g.Key, Count = g.Count(), Total = g.Sum(t => t.Amount) })
+            .ToListAsync(ct);
+
         return new TransactionSummary(
             customerId,
-            transactions.Count,
-            transactions.Sum(t => t.Amount),
-            transactions.Average(t => t.Amount),
-            transactions.Max(t => t.Amount),
-            transactions.Min(t => t.Amount),
-            transactions.GroupBy(t => t.Category).ToDictionary(g => g.Key, g => g.Count()),
-            transactions.GroupBy(t => t.Category).ToDictionary(g => g.Key, g => g.Sum(t => t.Amount)),
-            transactions.Min(t => (DateTime?)t.TransactionDateUtc),
-            transactions.Max(t => (DateTime?)t.TransactionDateUtc));
+            stats.Count,
+            stats.Total,
+            stats.Avg,
+            stats.Max,
+            stats.Min,
+            categoryStats.ToDictionary(g => g.Category, g => g.Count),
+            categoryStats.ToDictionary(g => g.Category, g => g.Total),
+            stats.Earliest,
+            stats.Latest);
     }
 
     private static IQueryable<UnifiedTransaction> ApplyFilters(
