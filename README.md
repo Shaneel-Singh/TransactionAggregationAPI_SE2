@@ -2,6 +2,40 @@
 
 .NET 8 REST API that aggregates transaction data from multiple mock sources, automatically categorizes transactions using a keyword strategy, and exposes a queryable, paginated read surface backed by PostgreSQL and Redis.
 
+## Local Development (VS2022 / Rider with breakpoints)
+
+Start only the infrastructure containers (Postgres + Redis), then run the API from your IDE.
+
+**Rancher Desktop (containerd engine):**
+```bash
+nerdctl compose up -d postgres redis
+```
+
+**Docker Desktop:**
+```bash
+docker compose up -d postgres redis
+```
+
+The `appsettings.Development.json` file is pre-configured with the matching connection strings. No `.env` file is needed for local IDE runs.
+
+Open `TransactionAggregationAPI.sln` in Visual Studio 2022 or Rider, set the startup project to `TransactionAggregationAPI.API`, and press **F5**. Swagger UI opens automatically at `http://localhost:5107/swagger`.
+
+Use this API key in the Swagger **Authorize** dialog (or `X-API-Key` header):
+```
+dev-api-key-12345
+```
+
+To stop the containers when done:
+```bash
+# Rancher Desktop
+nerdctl compose down
+
+# Docker Desktop
+docker compose down
+```
+
+---
+
 ## Quick Start
 
 ```bash
